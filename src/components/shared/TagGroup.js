@@ -1,5 +1,5 @@
 import React from 'react';
-import getColor from '../../utils/getColor';
+import { getColor } from '../../utils/getColor';
 import { Tag } from 'antd';
 
 const TagGroup = ({ tags }) => {
