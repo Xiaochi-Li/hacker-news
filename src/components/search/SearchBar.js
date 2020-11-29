@@ -7,6 +7,7 @@ const SearchBar = () => {
   return (
     <Input.Search
       placeholder="input search text"
+      size="large"
       onSearch={(text) => {
         updateSearchKeywords(text);
       }}

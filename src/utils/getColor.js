@@ -1,4 +1,4 @@
-const getColor = (index) => {
+export const getColor = (index) => {
   const Colors = [
     'magenta',
     'red',
@@ -11,7 +11,5 @@ const getColor = (index) => {
     'volcano',
   ];
   if (index < 10) return Colors[index];
-  return Colors[index * 10];
+  return Colors[index % 10];
 };
-
-export default getColor;
