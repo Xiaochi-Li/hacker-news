@@ -3,6 +3,7 @@ import {
   LOADING,
   RESPONSE_COMPLETE,
   ERROR,
+  UPDAT_KEYWORDS,
 } from '../ResultsContext';
 import { mockState } from '../../utils/testHelper/mockState';
 import { mockHits } from '../../utils/testHelper/mockHits';
@@ -19,7 +20,17 @@ describe('test fetchReducer', () => {
   });
 
   it('should have error message', () => {
-    const action = { type: ERROR, payload: { error: 'mock error' } };
-    expect(fetchReducer(mockState, action).error).toEqual('mock error');
+    const action = { type: ERROR, payload: { error: 'test error' } };
+    expect(fetchReducer(mockState, action).error).toEqual('test error');
+  });
+
+  it('should update searchKeywords', () => {
+    const action = {
+      type: UPDAT_KEYWORDS,
+      payload: { searchKeywords: 'test keywords' },
+    };
+    expect(fetchReducer(mockState, action).searchKeywords).toEqual(
+      'test keywords'
+    );
   });
 });
