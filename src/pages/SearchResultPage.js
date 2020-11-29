@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ResultsList from '../components/search/ResultsList';
 import SearchBar from '../components/search/SearchBar';
-import { Layout, Space } from 'antd';
+import { Layout, Spin } from 'antd';
+import { ResultsContext } from '../context/ResultsContext';
 
 const contentStyles = { padding: '0 10%' };
 
 const SearchResultPage = () => {
-  const { Header, Footer, Content } = Layout;
+  const { loading } = useContext(ResultsContext);
+
+  const { Header, Content } = Layout;
   return (
     <Layout>
       <Header>
         <SearchBar />
       </Header>
       <Content style={contentStyles}>
-        <ResultsList />
+        {loading ? <Spin size="large" /> : <ResultsList />}
       </Content>
-      <Footer>Footer</Footer>
     </Layout>
   );
 };

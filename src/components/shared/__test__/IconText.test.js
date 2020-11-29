@@ -5,7 +5,7 @@ import IconText from '../IconText';
 
 const testProps = { text: 'test', icon: StarTwoTone };
 
-describe('<IconText/> spec', () => {
+describe('NewsItem', () => {
   it('renders IconText component', () => {
     const component = render(<IconText {...testProps} />);
     expect(component).toMatchSnapshot();

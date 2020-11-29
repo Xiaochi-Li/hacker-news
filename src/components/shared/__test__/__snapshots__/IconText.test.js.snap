@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<IconText/> spec renders IconText component 1`] = `
+exports[`NewsItem renders IconText component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
