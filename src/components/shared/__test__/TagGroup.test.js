@@ -6,7 +6,7 @@ const testProps = {
   tags: ['test tag 1', 'test tag 2'],
 };
 
-describe('<IconTeTagGroupxt/> spec', () => {
+describe('test TagGroup', () => {
   it('renders TagGroup component', () => {
     const component = render(<TagGroup {...testProps} />);
     expect(component).toMatchSnapshot();

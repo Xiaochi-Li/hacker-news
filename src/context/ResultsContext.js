@@ -39,7 +39,7 @@ export const fetchReducer = (state, action) => {
       return {
         ...state,
         ...payload,
-        loading: true,
+        loading: false,
         error: null,
       };
     case ERROR:
@@ -69,6 +69,7 @@ export const ResultsProvider = ({ children }) => {
   const { searchKeywords, page } = state;
 
   useEffect(() => {
+    dispatch({ type: LOADING });
     fetch(getSearchUrl(searchKeywords, page, tags.story))
       .then((response) => response.json())
       .then((response) => {
