@@ -5,11 +5,11 @@ import { ResultsContext } from '../../context/ResultsContext';
 const SearchBar = () => {
   const { updateSearchKeywords } = useContext(ResultsContext);
   return (
-    <Input.Search
+    <Input
       placeholder="input search text"
       size="large"
-      onSearch={(text) => {
-        updateSearchKeywords(text);
+      onChange={(e) => {
+        updateSearchKeywords(e.target.value);
       }}
       enterButton
     />
