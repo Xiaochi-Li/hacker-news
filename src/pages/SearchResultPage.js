@@ -1,7 +1,7 @@
 import React from 'react';
 import ResultsList from '../components/search/ResultsList';
 import SearchBar from '../components/search/SearchBar';
-import { Layout, Space } from 'antd';
+import { Layout } from 'antd';
 
 const contentStyles = { padding: '0 10%' };
 
