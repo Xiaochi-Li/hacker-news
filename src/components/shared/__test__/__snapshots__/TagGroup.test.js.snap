@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<IconTeTagGroupxt/> spec renders TagGroup component 1`] = `
+exports[`test TagGroup renders TagGroup component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

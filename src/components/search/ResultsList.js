@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import NewsItem from '../shared/NewsItem';
 import { List } from 'antd';
 import { ResultsContext } from '../../context/ResultsContext';
 
 const ResultsList = () => {
-  const { hits, hitsTotal, updatePage } = React.useContext(ResultsContext);
+  const { hits, hitsTotal, updatePage } = useContext(ResultsContext);
   const paginationConfig = {
     pageSize: 20,
     position: 'both',
