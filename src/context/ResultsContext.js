@@ -8,7 +8,7 @@ export const ERROR = 'ERROR';
 export const ResultsContext = createContext();
 
 const initialState = {
-  hits: null,
+  hits: [],
   loading: true,
   error: null,
 };
@@ -46,7 +46,7 @@ export const ResultsProvider = ({ children }) => {
     fetch(BASE_URL + 'search?query=foo&tags=story')
       .then((response) => response.json())
       .then((response) => {
-        dispatch({ type: RESPONSE_COMPLETE, payload: { response } });
+        dispatch({ type: RESPONSE_COMPLETE, payload: { hits: response.hits } });
       })
       .catch((error) => {
         dispatch({ type: ERROR, payload: { error } });
