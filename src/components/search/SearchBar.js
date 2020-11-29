@@ -11,7 +11,6 @@ const SearchBar = () => {
       onChange={(e) => {
         updateSearchKeywords(e.target.value);
       }}
-      enterButton
     />
   );
 };
