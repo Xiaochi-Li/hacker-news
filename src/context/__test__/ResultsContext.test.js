@@ -4,7 +4,7 @@ import {
   RESPONSE_COMPLETE,
   ERROR,
   UPDATE_KEYWORDS,
-  UPDATE_PAGE,
+  UPDATE_CURRENT_PAGE,
 } from '../ResultsContext';
 
 import { mockState } from '../../utils/testHelper/mockState';
@@ -37,7 +37,7 @@ describe('test fetchReducer', () => {
   });
 
   it('should update page', () => {
-    const action = { type: UPDATE_PAGE, payload: { page: 23 } };
-    expect(fetchReducer(mockState, action).page).toEqual(23);
+    const action = { type: UPDATE_CURRENT_PAGE, payload: { currentPage: 23 } };
+    expect(fetchReducer(mockState, action).currentPage).toEqual(23);
   });
 });

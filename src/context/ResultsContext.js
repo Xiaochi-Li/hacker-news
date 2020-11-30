@@ -12,7 +12,7 @@ export const LOADING = 'LOADING';
 export const RESPONSE_COMPLETE = 'RESPONSE_COMPLETE';
 export const ERROR = 'ERROR';
 export const UPDATE_KEYWORDS = 'UPDAT_KEYWORDS';
-export const UPDATE_PAGE = 'UPDATE_PAGE';
+export const UPDATE_CURRENT_PAGE = 'UPDATE_CURRENT_PAGE';
 
 export const ResultsContext = createContext();
 
@@ -21,7 +21,7 @@ const initialState = {
   hits: [],
   loading: true,
   error: null,
-  page: 1,
+  currentPage: 1,
   hitsTotal: 1000,
 };
 
@@ -54,10 +54,10 @@ export const fetchReducer = (state, action) => {
         ...state,
         searchKeywords: payload.searchKeywords,
       };
-    case UPDATE_PAGE:
+    case UPDATE_CURRENT_PAGE:
       return {
         ...state,
-        page: payload.page,
+        currentPage: payload.currentPage,
       };
     default:
       return { ...state };
@@ -66,11 +66,11 @@ export const fetchReducer = (state, action) => {
 
 export const ResultsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(fetchReducer, initialState);
-  const { searchKeywords, page } = state;
+  const { searchKeywords, currentPage } = state;
 
   useEffect(() => {
     dispatch({ type: LOADING });
-    fetch(getSearchUrl(searchKeywords, page, tags.story))
+    fetch(getSearchUrl(searchKeywords, currentPage, tags.story))
       .then((response) => response.json())
       .then((response) => {
         const { hits, hitsPerPage, nbPages } = response;
@@ -82,7 +82,7 @@ export const ResultsProvider = ({ children }) => {
       .catch((error) => {
         dispatch({ type: ERROR, payload: { error } });
       });
-  }, [searchKeywords, page]);
+  }, [searchKeywords, currentPage]);
 
   const updateSearchKeywords = useCallback(
     (searchKeywords) => {
@@ -92,10 +92,10 @@ export const ResultsProvider = ({ children }) => {
   );
 
   const updatePage = useCallback(
-    (page) => {
+    (currentPage) => {
       dispatch({
-        type: UPDATE_PAGE,
-        payload: { page: page },
+        type: UPDATE_CURRENT_PAGE,
+        payload: { currentPage: currentPage },
       });
     },
     [dispatch]

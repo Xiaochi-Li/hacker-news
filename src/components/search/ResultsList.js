@@ -4,16 +4,19 @@ import { List } from 'antd';
 import { ResultsContext } from '../../context/ResultsContext';
 
 const ResultsList = () => {
-  const { hits, hitsTotal, updatePage, page } = useContext(ResultsContext);
+  const { hits, hitsTotal, updatePage, currentPage } = useContext(
+    ResultsContext
+  );
   const paginationConfig = {
     pageSize: 20,
     position: 'both',
     total: hitsTotal,
-    current: page,
-    onChange: (newpPage) => {
-      updatePage(newpPage);
+    current: currentPage,
+    onChange: (newCurrentPage) => {
+      updatePage(newCurrentPage);
     },
   };
+
   return (
     <List
       itemLayout="vertical"
